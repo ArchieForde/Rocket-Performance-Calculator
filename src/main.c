@@ -14,14 +14,16 @@ double getInitialMass(void)
 
             if(scanf("%lf", &initialMass) != 1) {
 
-                printf("Please enter a valid number.\n\n");
+                printf("\nPlease enter a valid number.\n\n");
 
                 while ((c = getchar()) != '\n' && c != EOF );
                 printf("Please enter the initial mass of the Rocket (in kg):\n");
             }
             else if(initialMass <= 0) {
 
-                printf("Please enter a number greater than 0.\n\n");
+                printf("\nPlease enter a number greater than 0.\n\n");
+
+                printf("Please enter the initial mass of the Rocket (in kg):\n");
                 }
             else {
                 break;
@@ -31,7 +33,7 @@ double getInitialMass(void)
         return initialMass;
     }
 
-double getFinalMass()
+double getFinalMass(void)
     {
         double finalMass;
         int c;
@@ -44,33 +46,23 @@ double getFinalMass()
 
                 printf("Please enter a valid number.\n\n");
 
-                while((c = getchar()) != '\n' && c != EOF) {
-
-                }
-
+                while((c = getchar()) != '\n' && c != EOF);
                 printf("Please enter the final mass of the Rocket (in kg):\n");
             }
             else if(finalMass <= 0) {
 
                 printf("Please enter a number greater than 0.\n\n");
 
-                while(finalMass <= 0) {
-
-                     printf("Please enter the final mass of the Rocket (in kg):\n");
-                     scanf("%lf", &finalMass);
-
-                }
+                printf("Please enter the final mass of the Rocket (in kg):\n");
             }
             else {
                 break;
             }
-
         }
-        
         return finalMass;
     }
 
-double getSpecificImpulse() {
+double getSpecificImpulse(void) {
 
     double specificImpulse;
     int c;
@@ -84,19 +76,14 @@ double getSpecificImpulse() {
 
             printf("Please enter a valid number.\n\n");
 
-            while((c = getchar()) != '\n' && c != EOF) {
-
-            }
+            while((c = getchar()) != '\n' && c != EOF);
 
             printf("Please enter the specific impulse of the Rocket (in seconds):\n");
         }
         else if( specificImpulse <= 0) {
             printf("Please enter a valid number greater than 0.\n\n");
 
-            while(specificImpulse <= 0) {
-                printf("Please enter the specific impulse of the Rocket (in seconds):\n");
-                scanf("%lf", &specificImpulse);
-            }
+            printf("Please enter the specific impulse of the Rocket (in seconds):\n");
         }
         else{
             break;
