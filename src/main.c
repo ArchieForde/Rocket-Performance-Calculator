@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdbool.h>
 
 double getInitialMass(void)
     {
@@ -124,16 +125,50 @@ double calculateDeltaV(double specificImpulse, double initialMass, double finalM
 
 int main() {
 
-    double initialMass = getInitialMass();    
-    double finalMass = getFinalMass();
-    double specificImpulse = getSpecificImpulse();
-    double propellantMass = calculatePropellantMass(initialMass, finalMass);
-    double massRatio = calculateMassRatio(initialMass, finalMass);
-    double DeltaV = calculateDeltaV(specificImpulse, initialMass, finalMass);
+    int choice = 0;
+    int c;
+    bool running = true;
+    while(running) {
 
-    printf("The propellant mass of the Rocket is %.2f kg\n", propellantMass);
-    printf("The mass ratio of the Rocket is %.2f\n", massRatio);
-    printf("The Delta-V value of the Rocket is %.2f m/s\n", DeltaV);
+        printf("\n=====================================\n");
+        printf("=       Rocket Mission Analysis     =\n");
+        printf("=====================================\n\n");
+
+        printf("1) Calculate Delta-V. \n");
+        printf("2) Quit\n\n");
+        printf("\nEnter your choice: ");
+
+
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid Input.\n");
+            while((c = getchar()) != '\n' && c != EOF);
+            continue;
+        }
+
+        switch (choice)
+        {
+            case 1: {
+
+                double initialMass = getInitialMass();
+                double finalMass = getFinalMass();
+                double specificImpulse = getSpecificImpulse();
+                double propellantMass = calculatePropellantMass(initialMass, finalMass);
+                double massRatio = calculateMassRatio(initialMass, finalMass);
+                double DeltaV = calculateDeltaV(specificImpulse, initialMass, finalMass);
+                printf("The propellant mass of the Rocket is %.2f kg\n", propellantMass);
+                printf("The mass ratio of the Rocket is %.2f\n", massRatio);
+                printf("The Delta-V value of the Rocket is %.2f m/s\n", DeltaV);
+                
+                break;
+            }
+            case 2: 
+                running = false;
+                break;
+            default:
+                printf("Please enter 1 or 2.\n");
+
+        }
+    }
 
     return 0;
 }
