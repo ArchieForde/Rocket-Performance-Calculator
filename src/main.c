@@ -12,7 +12,7 @@ int main(void) {
 
     while(running) {
 
-        printf("\n=====================================\n");
+        printf("\n=======================================\n");
         printf("=       Rocket Mission Analysis       =\n");
         printf("=======================================\n\n");
 
